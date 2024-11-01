@@ -1,10 +1,10 @@
 # eduGenie™ - Chatbot Application for Personalized English Language Learning Assistant
 
-EduGenie Chatbot v0.1 is an interactive, emotionally intelligent learning assistant, fine-tuned specifically for English language learners. Designed to be engaging and empathetic, EduGenie adapts to the user's mood and provides text, audio, and even an animated avatar to enhance the language learning experience.
+eduGenie Chatbot is an interactive, emotionally intelligent learning assistant, fine-tuned specifically for English language learners. Designed to be engaging and empathetic, eduGenie adapts to the user's mood and provides text, audio, and even an animated avatar to enhance the language learning experience.
 
 ## Overview
 
-EduGenie combines state-of-the-art language and speech models with real-time animation to create a comprehensive, interactive learning tool. It detects user emotions, generates spoken responses, and presents a dynamic, lifelike avatar, creating a more engaging and supportive environment for language practice.
+eduGenie combines state-of-the-art language and speech models with real-time animation to create a comprehensive, interactive learning tool. It detects user emotions, generates spoken responses, and presents a dynamic, lifelike avatar, creating a more engaging and supportive environment for language practice.
 
 ### Key Features
 
@@ -14,7 +14,7 @@ EduGenie combines state-of-the-art language and speech models with real-time ani
 
 3. **Lifelike Avatar**: Using the **DreamTalk** framework (accessible via [GitHub](https://github.com/ali-vilab/dreamtalk)), EduGenie generates an avatar that lip-syncs with the audio, enhancing user engagement by adding a visual component to the interaction.
 
-4. **Fine-Tuning with Custom Dataset**: The chatbot has been customized with a dedicated English language learning dataset (`dataset_ingilizce.csv`). This fine-tuning was performed on **Google AI Studio** using the **Gemini 1.5 Flash 001 Tuning model**, adapting the chatbot specifically for language learning needs.
+4. **Fine-Tuning with Custom Dataset**: The chatbot has been customized with a dedicated English language learning dataset (`dataset_english_fine_tuning.csv`). This fine-tuning was performed on **Google AI Studio** using the **Gemini 1.5 Flash 001 Tuning model**, adapting the chatbot specifically for language learning needs.
 
 5. **Dynamic Response Generation**: EduGenie generates text responses via **Google Gemini API**, using detected emotions to add emotional context to responses—ideal for a conversational learning assistant.
 
@@ -37,6 +37,10 @@ cd eduGenie
   source env/bin/activate
   pip install -r requirements.txt
   ```
+- Drag the 'checkpoints' folder you downloaded from this link https://drive.google.com/file/d/1BFg7pFMS5DNsNDtHWe2eLINpxJbAua59/view?usp=sharing directly to the dreamtalk folder.
+ 
+- Install the Desktop development with C++ module and install the CMake software build automation program. (Don't forget to set the environmental variables path for CCmake)  
+  
 
 ### Step 3: Configure the Models
 
