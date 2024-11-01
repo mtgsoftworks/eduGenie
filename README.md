@@ -88,6 +88,9 @@ eduGenie Chatbot relies on several key libraries and models:
 
 ---
 
+## Warning
+- You need to install Python version 3.9.13 for the project. Using the wrong version may cause incompatibility problems between the libraries used!
+
 ### Tuning Details
 ![Tuning Details](images/tuning_details.png)
 
