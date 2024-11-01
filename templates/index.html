@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+    <title>EduGenie™ Chatbot Application</title>
+    <style>
+        .video-small {
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            width: 256px;
+            height: 256px;
+            display: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="chat-container">
+        <h1>EduGenie™ Chatbot Application</h1>
+        <div id="chatbox"></div>
+        <div class="input-container">
+            <input type="text" id="user_input" placeholder="Type your message...">
+            <button id="send_button">Send</button>
+            <button id="clear_chat_button">Clear Chat</button>
+        </div>
+
+        <div id="response"></div>
+        <audio id="audio" controls style="display: none;"></audio>
+
+        <video id="video_player" controls class="video-small"></video>
+
+        <div id="feedback_section" style="display:none;">
+            <h3>Rate the Bot's Response:</h3>
+            <button class="feedback_btn" data-feedback="positive">👍</button>
+            <button class="feedback_btn" data-feedback="negative">👎</button>
+        </div>
+    </div>
+
+    <footer>
+        2024 © MTG Softworks. All Rights Reserved - EduGenie™ Chatbot Application
+    </footer>
+
+    <script>
+        let lastUserInput = "";
+
+        document.getElementById('send_button').onclick = function() {
+            const userInput = document.getElementById('user_input').value;
+            lastUserInput = userInput;
+            const chatbox = document.getElementById('chatbox');
+            chatbox.innerHTML += `<div class="user-message">User: ${userInput}</div>`;
+
+            const waitingMessage = document.createElement("div");
+            waitingMessage.className = "bot-message";
+            waitingMessage.id = "waiting_message";
+            waitingMessage.innerText = "Waiting for response...";
+            chatbox.appendChild(waitingMessage);
+
+            document.getElementById('user_input').value = '';
+
+            fetch('/ask', {
+                method: 'POST',
+                headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                body: 'user_input=' + encodeURIComponent(userInput)
+            })
+            .then(response => response.json())
+            .then(data => {
+                waitingMessage.remove();
+
+                const botMessage = document.createElement("div");
+                botMessage.className = "bot-message";
+                botMessage.innerHTML = `
+                    Bot: ${data.response} <span>(Detected Emotion: ${data.emotion})</span>
+                    <button onclick="playAudio('${data.audio_path}')">🔊</button>
+                `;
+                chatbox.appendChild(botMessage);
+
+                document.getElementById('feedback_section').style.display = 'block';
+
+                const videoPlayer = document.getElementById('video_player');
+                const videoPath = data.video_path;
+                videoPlayer.src = "/output/" + videoPath;  
+
+                fetch(videoPlayer.src)
+                    .then(res => {
+                        if (res.ok) {
+                            videoPlayer.style.display = 'block';
+                            videoPlayer.load();
+                        } else {
+                            console.error("Video file not found:", videoPlayer.src);
+                        }
+                    })
+                    .catch(err => console.error("Error fetching video:", err));
+
+                chatbox.scrollTop = chatbox.scrollHeight;
+            })
+            .catch(error => {
+                console.error("Error:", error);
+                waitingMessage.innerText = "Error retrieving response.";
+            });
+        };
+
+        document.getElementById('clear_chat_button').onclick = function() {
+            const chatbox = document.getElementById('chatbox');
+            chatbox.innerHTML = '';
+        };
+
+        function playAudio(audioPath) {
+            const audio = document.getElementById('audio');
+            audio.src = audioPath;
+            audio.style.display = 'block';
+            audio.play().catch(error => console.error("Audio playback error:", error));
+        }
+
+        document.querySelectorAll('.feedback_btn').forEach(button => {
+            button.onclick = function() {
+                const feedback = this.getAttribute('data-feedback');
+                fetch('/feedback', {
+                    method: 'POST',
+                    headers: {'Content-Type': 'application/x-www-form-urlencoded'},
+                    body: 'user_feedback=' + encodeURIComponent(feedback) + '&user_input=' + encodeURIComponent(lastUserInput)
+                })
+                .then(() => {
+                    alert('Thank you for your feedback!');
+                    document.getElementById('feedback_section').style.display = 'none';
+                });
+            };
+        });
+    </script>
+</body>
+</html>
