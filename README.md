@@ -1,1 +1,1 @@
-# eduGenie
+# eduGenie™ - Chatbot Application
