@@ -55,10 +55,10 @@ cd eduGenie
 ## Project Components
 
 - **app.py**: Main Flask application for chatbot interactions and video file serving.
-- **video_generate.py**: Generates avatar video synchronized with the chatbot’s audio output using DreamTalk.
-- **text_to_speech.py**: Converts chatbot responses to audio using SpeechT5.
-- **detect_emotion.py**: Identifies emotions from user inputs, shaping responses accordingly.
-- **generate_response.py**: Uses Google Gemini API to create contextually relevant responses, incorporating emotional insights from `detect_emotion.py`.
+- **video_generate()**: Generates avatar video synchronized with the chatbot’s audio output using DreamTalk.
+- **text_to_speech()**: Converts chatbot responses to audio using SpeechT5.
+- **detect_emotion()**: Identifies emotions from user inputs, shaping responses accordingly.
+- **generate_response()**: Uses Google Gemini API to create contextually relevant responses, incorporating emotional insights from `detect_emotion.py`.
 
 ## Usage
 
