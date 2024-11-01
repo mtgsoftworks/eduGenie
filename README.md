@@ -25,8 +25,8 @@ Here’s how you can set up EduGenie Chatbot on your local machine:
 ### Step 1: Clone the Repository
 
 ```bash
-git clone https://github.com/YourUsername/EduGenie_Chatbot.git
-cd EduGenie_Chatbot
+git clone https://github.com/mtgsoftworks/eduGenie.git
+cd eduGenie
 ```
 
 ### Step 2: Install Dependencies
@@ -71,7 +71,7 @@ cd EduGenie_Chatbot
 
 ## Dependencies
 
-EduGenie Chatbot v0.1 relies on several key libraries and models:
+eduGenie Chatbot relies on several key libraries and models:
 - **Transformers** for language and emotion models
 - **MoviePy** for video processing
 - **Flask** for creating a local web server
@@ -79,4 +79,4 @@ EduGenie Chatbot v0.1 relies on several key libraries and models:
 
 ---
 
-EduGenie Chatbot is more than just a language learning tool—it's a responsive, engaging, and empathetic virtual assistant designed to make learning English interactive and enjoyable!
+eduGenie Chatbot is more than just a language learning tool—it's a responsive, engaging, and empathetic virtual assistant designed to make learning English interactive and enjoyable!
