@@ -16,7 +16,7 @@ eduGenie combines state-of-the-art language and speech models with real-time ani
 
 4. **Fine-Tuning with Custom Dataset**: The chatbot has been customized with a dedicated English language learning dataset (`dataset_english_fine_tuning.csv`). This fine-tuning was performed on **Google AI Studio** using the **Gemini 1.5 Flash 001 Tuning model**, adapting the chatbot specifically for language learning needs.
 
-5. **Dynamic Response Generation**: EduGenie generates text responses via **Google Gemini API**, using detected emotions to add emotional context to responses—ideal for a conversational learning assistant.
+5. **Dynamic Response Generation**: EduGenie generates text responses via **Google Gemini API**, using detected emotions to add emotional context to responses ideal for a conversational learning assistant.
 
 ## Quick Start
 
