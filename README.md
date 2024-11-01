@@ -85,6 +85,8 @@ eduGenie Chatbot relies on several key libraries and models:
 
 ### Tuning Details
 ![Tuning Details](images/tuning_details.png)
+
+### App Running
 ![App Running - 1](images/pictures_1.png)
 ![App Running - 2](images/pictures_2.png)
 
