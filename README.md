@@ -83,4 +83,9 @@ eduGenie Chatbot relies on several key libraries and models:
 
 ---
 
+### Tuning Details
+![Tuning Details](images/tuning_details.png)
+![App Running - 1](images/pictures_1.png)
+![App Running - 2](images/pictures_2.png)
+
 eduGenie Chatbot is more than just a language learning tool—it's a responsive, engaging, and empathetic virtual assistant designed to make learning English interactive and enjoyable!
