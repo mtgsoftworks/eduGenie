@@ -90,6 +90,7 @@ def video_generate(audio_name, video_name):
 
         stdout, stderr = process.communicate()
         print("Output:", stdout.decode())
+        os.chdir('..')
         if stderr:
             print("Errors:", stderr.decode())
             process.terminate()
