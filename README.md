@@ -58,7 +58,12 @@ cd eduGenie
 - **video_generate()**: Generates avatar video synchronized with the chatbot’s audio output using DreamTalk.
 - **text_to_speech()**: Converts chatbot responses to audio using SpeechT5.
 - **detect_emotion()**: Identifies emotions from user inputs, shaping responses accordingly.
-- **generate_response()**: Uses Google Gemini API to create contextually relevant responses, incorporating emotional insights from `detect_emotion.py`.
+- **generate_response()**: Uses Google Gemini API to create contextually relevant responses, incorporating emotional insights from `detect_emotion()`.
+- **index()**: Renders the main page of the web application.
+- **ask()**: Processes user input, detects emotion, generates a response, creates audio and video, and returns the results in JSON format.
+- **feedback()**: Logs feedback received from users about their interaction with the chatbot.
+- **serve_video(filename)**: Serves the generated video files for download or playback through the web interface.
+- Logging Setup: Configures logging to track chatbot interactions, errors, and performance metrics. Log files are saved in the logs directory with timestamps for easy reference.
 
 ## Usage
 
@@ -90,4 +95,4 @@ eduGenie Chatbot relies on several key libraries and models:
 ![App Running - 1](images/pictures_1.png)
 ![App Running - 2](images/pictures_2.png)
 
-eduGenie Chatbot is more than just a language learning tool—it's a responsive, engaging, and empathetic virtual assistant designed to make learning English interactive and enjoyable!
+eduGenie Chatbot is more than just a language learning tool; it's a responsive, engaging, and empathetic virtual assistant designed to make learning English interactive and enjoyable!
